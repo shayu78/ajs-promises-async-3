@@ -3,9 +3,11 @@
 
 import GameSavingLoader from './GameSavingLoader';
 
-GameSavingLoader.load().then((saving) => {
-  // saving объект класса GameSaving
-  console.log(`saving as string = ${JSON.stringify(saving)}`);
-}, (error) => {
-  // console.error(`rejected load: ${error}`);
-});
+(async () => {
+  try {
+    const saving = await GameSavingLoader.load();
+    console.log(`saving as string = ${JSON.stringify(saving)}`);
+  } catch (error) {
+    console.error(`rejected load: ${error}`);
+  }
+})();

@@ -5,8 +5,8 @@ test('class GameSavingLoader instanceof', () => {
 });
 
 describe('GameSavingLoader methods', () => {
-  test('GameSavingLoader load resolve', () => {
-    const data = GameSavingLoader.load();
+  test('GameSavingLoader load resolve', async () => {
+    const data = await GameSavingLoader.load();
     const receive = {
       created: 1546300800,
       id: 9,
@@ -17,6 +17,6 @@ describe('GameSavingLoader methods', () => {
         points: 2000,
       },
     };
-    return expect(data).resolves.toEqual(receive);
+    expect(data).toEqual(receive);
   });
 });
